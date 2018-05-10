@@ -13,6 +13,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -39,7 +40,8 @@ import { EntrevistaComponent } from './entrevista/entrevista.component';
       MatTabsModule,
       MatSelectModule,
       MatRadioModule,
-      MatCheckboxModule
+      MatCheckboxModule,
+      MatDividerModule
 
   ],
   providers: [],
