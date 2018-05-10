@@ -239,6 +239,38 @@
       [value]=academica
       >{{academica}}</mat-checkbox>
     </section>
+<br>
+    Administrativa:
+    <section class="example-section">
+<mat-checkbox class="example-margin"
+*ngFor="let administrativa of tipoAdministrativa"
+[value]=administrativa
+>{{administrativa}}</mat-checkbox>
+</section>
+<br>
+Psicosocial:
+<section class="example-section">
+<mat-checkbox class="example-margin"
+*ngFor="let psicosocial of tipoPsicosocial"
+[value]=psicosocial
+>{{psicosocial}}</mat-checkbox>
+</section>
+<br>
+Habilidades para el aprendizaje:
+<section class="example-section">
+<mat-checkbox class="example-margin"
+*ngFor="let aprendizaje of tipoHabilidadesParaApendizaje"
+[value]=aprendizaje
+>{{aprendizaje}}</mat-checkbox>
+</section>
+<br>
+Soportes justificativos:
+<section class="example-section">
+<mat-checkbox class="example-margin"
+*ngFor="let soportes of tipoSoportesJustificados"
+[value]=soportes
+>{{soportes}}</mat-checkbox>
+</section>
 
           </mat-tab>
         </mat-tab-group>

@@ -54,4 +54,8 @@ tipoIdentidadGenero=['H','M','T'];
 tipoOrientacionSexual=['L','G','B','H','I'];
 tipoAsesoria=['Académica','Administrativa','Habilidades para el aprendizaje','Psicosocial','Soporte justificativo' ];
 tipoAcademica=['Cancelación de semestre','Cancelación de asignatura','Académicos - reingreso','Carga mínima','Traslado','Iniciativas estudiantiles','Doble titulación','Homologaciones, convalidaciones y equivalencias','Habilidades para el aprendizaje']
+tipoAdministrativa=['Administrativos - reubicación socioeconómica','Administrativo - apoyos socioeconómicos','Administrativos - opciones laborales estudiantes'];
+tipoPsicosocial=['Mediación de conflictos','Población focalizada - reingreso','Población focalizada - discapacidad','Población focalizada - PAES','Población focalizada - apoyo especial por vulneración','Población focalizada - Ser pilo paga','Población focalizada - padres y madres','Primera escucha','Proyección profesional','Vulneración de derechos','Población focalizada - PEAMA','Población focalizada - bajo promedio','Población focalizada - víctimas del conflicto'];
+tipoHabilidadesParaApendizaje=['Atención general en habilidades','Orientación vocacional'];
+tipoSoportesJustificados=['Convivencia','Habilidades para el aprendizaje','Socioeconómico – sociofamiliar'];
 }

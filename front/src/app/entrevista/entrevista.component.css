@@ -14,7 +14,7 @@
 .example-full-width {
   width: 100%;
 }
-
+/* Radio Button*/
 .example-radio-group {
   display: inline-flex;
   flex-direction: column;
@@ -26,4 +26,19 @@
 
 .example-selected-value {
   margin: 15px 0;
+}
+/* checkbox */
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
 }
