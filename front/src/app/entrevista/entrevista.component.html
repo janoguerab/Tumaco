@@ -1,33 +1,336 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Asesor/a: {{asesor}}</span>
+    <span class="example-spacer"></span>
+    <span>Fecha: {{ now | date }}</span>
+    <mat-icon class="example-icon">calendar_today</mat-icon>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+<span class="example-spacer"></span>
+    <span>Hora inicio: {{ now | date :  "shortTime" }}</span>
+    <mat-icon class="example-icon">access_time</mat-icon>
+    <!--
+    <span>Hora cierre: {{ now | date: "shortTime" }}</span>
+-->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
 <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        <!-- Tarjeta Contenido-->
+        <mat-card class="">
+          <mat-card-header>
+            <div mat-card-avatar class="">
+                <mat-icon>account_circle</mat-icon>
+            </div>
+            <mat-card-title>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="DNI" value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Nombre" value="">
+                </mat-form-field>
+        </mat-card-title>
+            <mat-card-subtitle>
+            <mat-form-field class="">
+                <input matInput placeholder="Correo sede de presencia nacional" value="">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="">
+                <input matInput placeholder="Correo sede Andina" value="">
+            </mat-form-field>
+            <mat-form-field class="">
+                <input matInput placeholder="Correo personal" value="">
+            </mat-form-field>
+            <mat-form-field class="">
+                <input matInput placeholder="Teléfono" value="">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Nombres de Acudientes" value="">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Teléfonos de Acudientes" value="">
+            </mat-form-field>
+        </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+        </mat-card-content>
+        </mat-card>
+
+      <ng-template matStepLabel>IDENTIFICACIÓN DEL ESTUDIANTE Y MOTIVO DE CONSULTA</ng-template>
+
+        <mat-tab-group>
+          <mat-tab label="Dátos Académicos">
+              <mat-form-field class="example-full-width">
+              <mat-select placeholder="Programa Curricular" [formControl]="progCurricular" [(ngModel)]="selectedValue">
+                <mat-option>-- Ninguno --</mat-option>
+                <mat-optgroup *ngFor="let group of progCurricularGrupos" [label]="group.name"
+                              [disabled]="group.disabled" >
+                  <mat-option *ngFor="let programa of group.programa" [value]="programa.value">
+                    {{ programa.viewValue }}
+                  </mat-option>
+                </mat-optgroup>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-radio-group class="example-radio-group" >
+              <mat-radio-button class="example-radio-button"
+              *ngFor="let group of progCurricularGrupos"
+              [value]="group.name"
+              >
+                {{group.name}}
+              </mat-radio-button>
+            </mat-radio-group>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="PBM" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="N°. matrícula" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Avance (%)" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="PAPA" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="N°. asignaturas" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="N°. créditos" value="">
+        </mat-form-field>
+        Tipo de Ingreso:
+        <mat-radio-group class="example-radio-group" >
+          <mat-radio-button class="example-radio-button"
+          *ngFor="let ingreso of tipoIngreso"
+          [value]="ingreso"
+          >
+            {{ingreso}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Tutor(a/es/as)" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Observaciones"></textarea>
+        </mat-form-field>
+          </mat-tab>
+          <mat-tab label="Dátos demográficos">
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Edad" value="">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Lugar de nacimiento" value="">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Procedencia" value="">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Dirección residencia" value="">
+              </mat-form-field>
+
+              <mat-radio-group class="example-radio-group" >
+                <mat-radio-button class="example-radio-button"
+                    *ngFor="let residencia of tipoResidencia"
+                [value]="residencia"
+                >
+                  {{residencia}}
+                </mat-radio-button>
+              </mat-radio-group>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Sector" value="">
       </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Estrato vivienda" value="">
+      </mat-form-field>
+      Tipo vivienda:
+      <mat-radio-group class="example-radio-group" >
+        <mat-radio-button class="example-radio-button"
+        *ngFor="let vivienda of tipoVivienda"
+        [value]="vivienda"
+        >
+          {{vivienda}}
+        </mat-radio-button>
+        <mat-form-field class="">
+            <input matInput placeholder="Otro">
+        </mat-form-field>
+      </mat-radio-group>
+
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Puntaje Sisben" value="">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Actividad laboral" value="">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Estrato vivienda" value="">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Seguridad Social" value="">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Etnia" value="">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Lengua materna" value="">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Discapacidad" value="">
+      </mat-form-field>
+      Sexo:
+      <mat-radio-group class="example-radio-group" >
+        <mat-radio-button class="example-radio-button"
+            *ngFor="let sexo of tipoSexo"
+        [value]="sexo"
+        >
+          {{sexo}}
+        </mat-radio-button>
+      </mat-radio-group>
+      Identidad de género :
+      <mat-radio-group class="example-radio-group" >
+        <mat-radio-button class="example-radio-button"
+            *ngFor="let genero of tipoIdentidadGenero"
+        [value]="genero"
+        >
+          {{genero}}
+        </mat-radio-button>
+      </mat-radio-group>
+      Orientación sexual:
+      <mat-radio-group class="example-radio-group" >
+        <mat-radio-button class="example-radio-button"
+            *ngFor="let orientacion of tipoOrientacionSexual"
+        [value]="orientacion"
+        >
+          {{orientacion}}
+        </mat-radio-button>
+      </mat-radio-group>
+       <mat-form-field class="example-full-width">
+           <input matInput placeholder="Autodefinición" value="">
+       </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Observaciones"></textarea>
+      </mat-form-field>
+
+      </mat-tab>
+      <mat-tab label="Motivo de la consulta">
+          <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Motivo de la consulta"></textarea>
+          </mat-form-field>
+          Tipo de asesoría:
+          <mat-radio-group class="example-radio-group" >
+            <mat-radio-button class="example-radio-button"
+                *ngFor="let asesoria of tipoAsesoria"
+            [value]="asesoria"
+            >
+              {{asesoria}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <br>
+         <h4>Motivo de asesoría (registro en SIBU):</h4>
+          <br>
+          Académica:
+          <section class="example-section">
+      <mat-checkbox class="example-margin"
+      *ngFor="let academica of tipoAcademica"
+      [value]=academica
+      >{{academica}}</mat-checkbox>
+    </section>
+
+          </mat-tab>
+        </mat-tab-group>
       <div>
-        <button mat-button matStepperNext>Next</button>
+
+        <button mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
+      <ng-template matStepLabel>RESULTADOS DE ENCUESTA DE PERFIL INTEGRAL DE INGRESO</ng-template>
       <mat-form-field>
         <input matInput placeholder="Address" formControlName="secondCtrl" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Atrás</button>
+        <button mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
+    <ng-template matStepLabel>RESULTADOS APERTURA DE HISTORIA CLINICA</ng-template>
+    Completado!.
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="stepper.reset()">Borrar</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>RUTA DE ACOMPAÑAMIENTO AMBITO ACADÉMICO</ng-template>
+    Completado!.
+    <div>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="stepper.reset()">Borrar</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>RUTA DE ACOMPAÑAMIENTO AMBITO SOCIOECONÓMICO</ng-template>
+    Completado!.
+    <div>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="stepper.reset()">Borrar</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>RUTA DE ACOMPAÑAMIENTO AMBITO  PERSONAL, FAMILIAR-RELACIONAL</ng-template>
+    Completado!.
+    <div>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="stepper.reset()">Borrar</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>RUTA DE ACOMPAÑAMIENTO SOCIODEMOGRAFICO (FACTORES ASOCIADOS A LA MOVILIDAD)</ng-template>
+    Completado!.
+    <div>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="stepper.reset()">Borrar</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>RUTA DE ACOMPAÑAMIENTO AMBITO DE LA SALUD</ng-template>
+    Completado!.
+    <div>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="stepper.reset()">Borrar</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>EVALUACIÓN DE LA INTERVENCIÓN PSICOSOCIAL</ng-template>
+    Completado!.
+    <div>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="stepper.reset()">Borrar</button>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>CONSENTIMIENTO INFORMADO</ng-template>
+    Completado!.
+    <div>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="stepper.reset()">Borrar</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>HOJA DE SEGUIMIENTO A LA SITUACIÓN</ng-template>
+    Completado!.
+    <div>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="stepper.reset()">Borrar</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
