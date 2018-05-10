@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Tumaco</title>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    </head>
+    <body>
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Cargando...</div>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyC_5UFxdC0juSdjBEz0DzdKoe9ocJ7Tkhs",
+            authDomain: "tumaco-77964.firebaseapp.com",
+            databaseURL: "https://tumaco-77964.firebaseio.com",
+            projectId: "tumaco-77964",
+            storageBucket: "tumaco-77964.appspot.com",
+            messagingSenderId: "167989148533"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
