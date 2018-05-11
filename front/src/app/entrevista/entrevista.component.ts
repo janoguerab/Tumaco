@@ -11,6 +11,15 @@ export class EntrevistaComponent {
     isLinear = false;
     firstFormGroup: FormGroup;
     secondFormGroup: FormGroup;
+    thirdFormGroup: FormGroup;
+    fourFormGroup: FormGroup;
+    fiveFormGroup: FormGroup;
+    sixFormGroup: FormGroup;
+    sevenFormGroup: FormGroup;
+    eightFormGroup: FormGroup;
+    nineFormGroup: FormGroup;
+    tenFormGroup: FormGroup;
+    elevenFormGroup: FormGroup;
     now = new Date();
     asesor="NOMBRE ASESOR";
   constructor(private _formBuilder: FormBuilder) { }
@@ -22,6 +31,33 @@ export class EntrevistaComponent {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+    this.thirdFormGroup = this._formBuilder.group({
+      thirdCtrl: ['', Validators.required]
+    });
+    this.fourFormGroup = this._formBuilder.group({
+      fourCtrl: ['', Validators.required]
+    });
+    this.fiveFormGroup = this._formBuilder.group({
+    fiveCtrl: ['', Validators.required]
+  });
+  this.sixFormGroup = this._formBuilder.group({
+    sixCtrl: ['', Validators.required]
+  });
+  this.sevenFormGroup = this._formBuilder.group({
+    sevenCtrl: ['', Validators.required]
+  });
+  this.eightFormGroup = this._formBuilder.group({
+    eightCtrl: ['', Validators.required]
+  });
+  this.nineFormGroup = this._formBuilder.group({
+  nineCtrl: ['', Validators.required]
+});
+this.tenFormGroup = this._formBuilder.group({
+  tenCtrl: ['', Validators.required]
+});
+this.elevenFormGroup = this._formBuilder.group({
+  elevenCtrl: ['', Validators.required]
+});
   }
 
   progCurricular = new FormControl();
